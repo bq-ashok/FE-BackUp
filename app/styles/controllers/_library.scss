@@ -1,0 +1,54 @@
+.application.library {
+  > .ember-view,
+  .gooru {
+    height: 100%;
+  }
+}
+.libraries {
+  @include flexbox;
+  @include flex-direction(column);
+  height: 100%;
+  .header.content.gru-header {
+    position: fixed;
+    margin: 55px 0 0;
+    z-index: 1000;
+    header {
+      padding: 0 20px 0 5%;
+      nav {
+        border-bottom: 3px solid $dark-400;
+      }
+    }
+    @media (min-width: $screen-md) {
+      margin: 63px 0 0;
+    }
+  }
+  #featured-courses {
+    height: 100%;
+    width: 100%;
+  }
+  #partner-libraries {
+    height: 100%;
+    width: 100%;
+    .libraries-container {
+      @media (min-width: $screen-lg) {
+        max-width: 1095px;
+        margin: 0;
+        margin-left: 10%;
+        margin-top: 80px;
+      }
+      @include flexbox;
+      @include flex-wrap(wrap);
+      @include justify-content(left);
+      margin: 100px 0 30px;
+      padding: 0 25px;
+    }
+  }
+  .take-tour {
+    .gru-take-tour {
+      right: 34px;
+      top: 235px;
+      position: fixed;
+      z-index: 1005;
+    }
+  }
+}

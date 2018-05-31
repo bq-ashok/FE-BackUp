@@ -1,0 +1,47 @@
+.gru-metrics-table {
+  .sub-header {
+    a,
+    i {
+      cursor: pointer;
+      color: $white;
+      opacity: 0.6;
+      &:hover,
+      &:visited {
+        text-decoration: none;
+        color: $white;
+        opacity: 0.6;
+      }
+    }
+    .justLabels {
+      cursor: default !important;
+    }
+    .metric-sub-header {
+      .gru-icon {
+        font-size: 13px;
+      }
+    }
+    .report {
+      opacity: 0.6;
+      text-align: center;
+    }
+    .paddingright {
+      padding-right: 23px;
+    }
+    .paddingleft {
+      padding-left: 23px;
+    }
+    .morepaddingleft {
+      padding-left: 75px;
+    }
+    .reportpad {
+      padding-left: 8px;
+      padding-top: 1px;
+    }
+    .newreportPadding {
+      padding-left: 12px;
+    }
+    .reportPadding {
+      padding-left: 79px;
+    }
+  }
+}

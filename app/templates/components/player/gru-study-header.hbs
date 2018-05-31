@@ -1,0 +1,92 @@
+<div class="header-panel row">
+  <div class="col-xs-3 course-info">
+    {{#if showBackToCourseMap}}
+      <div class="course-map pull-left" {{action 'redirectCourseMap'}} data-toggle="tooltip" data-placement="bottom" title="{{t 'common.back-to-course-map'}}">
+        <div class="nav-icon-container">
+          {{gru-icon name="sort"}}
+        </div>
+      </div>
+    {{/if}}
+    {{#if showBackToCollection}}
+      {{#if collectionUrl}}
+        <div class="back-to-collection pull-left" {{action 'backToCollection'}} data-toggle="tooltip" data-placement="bottom" title="{{if collection.isCollection (t 'common.back-to-collection') (t 'common.back-to-assessment') }}">
+          <div class="nav-icon-container">
+            {{gru-icon name='ic_close'}}
+          </div>
+        </div>
+      {{else}}
+        <div class="course-map pull-left" {{action 'redirectCourseMap'}} data-toggle="tooltip" data-placement="bottom" title="{{t 'common.back-to-course-map'}}">
+          <div class="nav-icon-container">
+            {{gru-icon name="sort"}}
+          </div>
+        </div>
+      {{/if}}
+    {{/if}}
+    <div class="pull-left content-title">
+      <p class="title">{{courseTitle}}</p>
+    </div>
+  </div>
+  <div class="col-xs-9 suggest-performance">
+    <div class="suggest-player pull-left">
+    {{#if hasSuggestedResources}}
+        <div class="slider-container carousel slide multi-item-carousel" id="theCarousel">
+          <div class="slider-inner-container carousel-inner">
+            {{#each suggestedResources as |resource index|}}
+              <div class="item  {{if (eq index 0) "active" "" }}">
+                <div class="col-xs-6" {{action 'playSuggested' resource}}>
+                  <i class="{{resource.format}}-icon resource-icon"></i>
+                  <div class="suggest-resource-title">
+                      <span class="title">{{resource.title}}</span>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+          <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+                {{gru-icon name="ic_keyboard_arrow_left"}}
+            </a>
+          <a class="right carousel-control" href="#theCarousel" data-slide="next">
+                {{gru-icon name="ic_keyboard_arrow_right"}}
+          </a>
+        </div>
+      {{else}}
+        <div class="no-suggestion-title">
+          <p>{{t 'gru-study-header.no-suggestions'}}</p>
+        </div>
+      {{/if}}
+    </div>
+    <div class="performance-completion-take-tour-info pull-left">
+      <div class="completion pull-left">
+          {{#if performanceSummary}}
+            <span class="score">{{performanceSummary.totalCompleted}}/{{performanceSummary.total}}</span>
+          {{else}}
+            <span class="score">--</span>
+          {{/if}}
+          <span class="label">{{t 'common.completion'}}</span>
+      </div>
+      <div class="performance pull-left" style="background-color:{{if performanceSummary (grade-color performanceSummary.score) defaultBarColor}}">
+        <span class="score">
+            {{#if performanceSummary}}
+              {{#if performanceSummary.score}}
+                {{performanceSummary.score}}%
+              {{else}}
+                0%
+              {{/if}}
+            {{else}}
+              --
+            {{/if}}
+          </span>
+        <span class="label">{{t 'teacher-landing.class.performance'}} </span>
+      </div>
+      <div class="take-a-tour pull-left">
+        {{gru-take-tour steps=steps containerClass='study-player-tour'}}
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="bar-charts" data-content="{{performancePercentage}}% Completed">
+    <div class="completion-chart">
+      {{charts/gru-x-bar-chart data=barChartData }}
+  </div>
+</div>

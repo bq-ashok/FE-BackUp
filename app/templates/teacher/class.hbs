@@ -1,0 +1,94 @@
+<div class="teacher class"> {{gru-take-tour steps=steps containerClass='class-view-tour'}}
+  <div class="header clearfix">
+    <div class="go-back-container">
+      {{#if backUrls}}
+        <a {{action 'backToClassReport' }} class="back-to">
+            {{gru-icon name='arrow_back'}}
+          {{t "common.back-to-report"}}
+          </a>
+      {{else}}
+        {{#if class.isArchived}}
+          {{#link-to 'teacher-home' (query-params showArchivedClasses="true" showActiveClasses="false" ) class="back-to" }}
+            {{gru-icon name='arrow_back'}} {{t 'teacher-landing.class.back-to-archived'}}
+          {{/link-to}}
+        {{else}}
+          {{#link-to 'teacher-home' class="back-to" }}
+            {{gru-icon name='arrow_back'}} {{t 'teacher-landing.class.back-to'}}
+          {{/link-to}}
+        {{/if}}
+      {{/if}}
+      <h1>{{class.title}}</h1>
+    </div>
+    <div class="panel panel-default panel-primary classroom-information">
+      <div class="panel-body">
+        <div class="course-image">
+          {{#if course.thumbnailUrl}}
+            <img src="{{course.thumbnailUrl}}" />
+          {{else}}
+            <div class="no-course-image"></div>
+          {{/if}}
+        </div>
+        <div class="course-name {{if isRescopedClass 'isRescopedClass' ''}}">
+          {{#if course.title}}
+            {{{truncate text=course.title maxLength=50}}}
+          {{else}}
+            {{t 'student-landing.class.no-course'}}
+          {{/if}}
+        </div>
+        <div class="counts-container">
+          <div class="count">
+            {{#if hasUnits}}
+              {{gru-icon tooltipTitle='common.unit' name="format_align_center"}}
+              <span>{{course.unitCount}}</span>
+            {{/if}}
+          </div>
+          <div class="count">
+            {{#if hasStudents}}
+              {{gru-icon tooltipTitle='common.student' name="people"}}
+              <span>{{class.countMembers}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="teacher-profile">
+          {{#if class.owner}}
+            <img class="img-responsive" src="{{class.owner.avatarUrl}}" {{action 'profileTeacher' class.owner}}>
+            <span class="owner-name">
+              {{#if class.owner.firstName}}
+                {{truncate text=(concat class.owner.firstName ' ' class.owner.lastName) maxLength=25}}
+              {{else}}
+                {{class.owner.username}}
+              {{/if}}
+            </span>
+          {{/if}}
+        </div>
+        <div class="taxonomy-standards">
+          {{#if course.tags.length}}
+            {{taxonomy.gru-taxonomy-tag-list tags=course.tags tagsVisible=1 isInCard=true hasTooltips=false}}
+          {{/if}}
+        </div>
+        <div class="class-code">
+          <div class="title">{{t 'student-landing.class-code'}}</div>
+          <div class="code">{{class.code}}</div>
+        </div>
+        <div class="copy-code">
+          {{gru-copy-value value=class.code tooltipCode="teacher-landing.class.click-to-copy"}}
+        </div>
+        {{#if (not isRescopedClass)}}
+          <div class="performance-container">
+            {{charts/gru-performance-chart performanceSummary=class.performanceSummary routeToGo="teacher.class.performance"}}
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{teacher.class.gru-class-navigation
+    class=class
+    onItemSelected="selectMenuItem"
+    onCollapseExpandClicked="toggleHeader"
+    selectedMenuItem=menuItem}}
+
+  <div class="content">
+    {{outlet}}
+  </div>
+</div>

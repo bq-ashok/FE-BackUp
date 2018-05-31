@@ -1,0 +1,63 @@
+<div class="gru-assessment-summary">
+  {{#if (not isPathway)}}
+    <div class="reports-owner">
+      <span> {{profile.firstName}} {{profile.lastName}}</span>
+    </div>
+
+    {{reports.assessment.gru-summary
+  assessmentResult=assessmentResult
+  areQuestionLinksHidden=areAnswersHidden
+  onSelectAttempt='selectAttempt'
+  onBubbleSelect='bubbleSelect'
+  isRealTime=isRealTime
+  showAttempts=showAttempts
+  showReactionBar=showReactionBar
+  profile=profile
+  questionCount=orderedQuestions.length
+  resourceCount=orderedResources.length
+  oeQuestionCount=orderedOpenEndedQuestions.length
+  }}
+  {{/if}}
+
+  {{#if (and (not isTeacher) areAnswersHidden)}}
+    <div class="hidden-report">
+      <span>{{t "gru-assessment-report.hidden-report"}}</span>
+    </div>
+  {{else}}
+    {{#if assessmentResult.hasMastery}}
+      {{reports.assessment.gru-mastery
+        pathway=pathway
+    learningTargets=assessmentResult.mastery
+    assessmentResult=assessmentResult
+    onBubbleSelect='bubbleSelect'}}
+    {{/if}}
+    {{#if orderedQuestions.length}}
+      {{reports.assessment.gru-questions
+      isAnswerKeyHidden=isAnswerKeyHidden
+      results=orderedQuestions
+      showReactionBar=showReactionBar
+      isTeacher=isTeacher
+      onUpdateQuestionScore='onUpdateQuestionScore'
+      isChangeScoreEnabled=isChangeScoreEnabled
+      hasAnsweredQuestions=hasAnsweredQuestions
+      showChangeScore=showChangeScore
+      isAssessment=isAssessment
+    }}
+    {{/if}}
+    {{#if orderedOpenEndedQuestions.length}}
+      {{reports.assessment.gru-questions
+      isAnswerKeyHidden=isAnswerKeyHidden
+      results=orderedOpenEndedQuestions
+      viewMode='open-ended'
+      showReactionBar=showReactionBar
+      onViewOEReport='viewOEReport'
+      isTeacher=isTeacher
+    }}
+    {{/if}}
+    {{#if orderedResources.length}}
+      {{reports.assessment.gru-resources
+      results=orderedResources
+      showReactionBar=showReactionBar}}
+    {{/if}}
+  {{/if}}
+</div>

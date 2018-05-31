@@ -1,0 +1,529 @@
+.gru-metrics-table {
+  margin: 10px 0;
+  width: inherit;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  .metrics-table-wrapper {
+    width: auto;
+    overflow-x: hidden;
+    padding-bottom: 1px;
+    overflow-y: hidden;
+  }
+  .borderradius {
+    border-radius: 4px 0px;
+  }
+  .table {
+    margin: 0;
+    width: auto;
+    font-size: $font-size-h6;
+    background: $white;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    border-collapse: inherit;
+    display: table-cell;
+    table-layout: fixed;
+    width: 100%;
+    margin-left: -100px;
+    .lt-cell {
+      border: 1px solid $light-300;
+    }
+    .lt-head {
+      min-width: 160px;
+      max-width: 160px;
+    }
+    .subwidthHeaderMax {
+      min-width: 160px;
+      width: 160px;
+    }
+    /* Absolute Center Spinner */
+    .loading {
+      position: fixed;
+      z-index: 9999;
+      height: 2em;
+      width: 2em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Transparent Overlay */
+    .loading:before {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* :not(:required) hides these rules from IE9 and below */
+    .loading:not(:required) {
+      /* hide "loading..." text */
+      font: 0/0 a;
+      color: transparent;
+      text-shadow: none;
+      background-color: transparent;
+      border: 0;
+    }
+    .ajax-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      z-index: 9999;
+    }
+    .textAlignment {
+      text-align: $tab-float-dir;
+      margin-left: 15px;
+    }
+    .subsubwidthmaxCollapseUnit {
+      max-width: 160px;
+      min-width: 161px;
+    }
+    .show-label {
+      text-align: $tab-float-dir;
+      padding-left: 7px;
+    }
+    .selectedUnitcolor {
+      background-color: #37424b !important;
+      text-align: center;
+      color: white !important;
+    }
+    .headerbgcolor {
+      background-color: white !important;
+      color: black;
+    }
+    .scoreMargin {
+      float: $tab-float-dir;
+      margin-left: 85px;
+      margin-top: -23px;
+    }
+    .newscoreMargin {
+      float: $menu-float-dir;
+      margin-left: -115px;
+      margin-right: 46px;
+    }
+    .timeMargin {
+      margin-top: -23px;
+    }
+    .mainTableSpacing {
+      border: 0 !important;
+      padding: 0 !important;
+    }
+
+    .subsubwidthmaxCollapse {
+      min-width: 162px !important;
+      width: 160px;
+    }
+    .text-newprimary {
+      color: #00bfff;
+    }
+    .subsubwidthmax {
+      min-width: 161px;
+      max-width: 160px;
+    }
+    .subsubwidthmax1 {
+      min-width: 161.3px;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    thead {
+      tr {
+        th,
+        td {
+          background-color: $dark-300;
+          color: $white;
+          border-right: 0.5px solid $light-300;
+          &:first-child {
+            border-right: 0;
+          }
+        }
+      }
+      .backgroundclraverage {
+        background-color: #dddddd !important;
+      }
+      .headers {
+        td,
+        th {
+          background-color: $dark-400;
+        }
+        > td {
+          border-top: 15px solid $dark-400 !important;
+          border-radius: 5px 0 0 0;
+          top: 10px;
+          height: 54px !important;
+        }
+        .header-title {
+          @include flexbox;
+          @include flex-direction(row);
+          @include align-items(center);
+          text-align: center;
+          div {
+            line-height: $font-size-lead;
+          }
+          .title {
+            width: inherit;
+            width: 160px;
+            min-width: 160px;
+            @include text-overflow();
+          }
+          .titlenew {
+            width: inherit;
+            width: 160px;
+            min-width: 160px;
+          }
+          .column {
+            @include flexbox;
+            @include flex-direction(column);
+          }
+          .small-icon {
+            i {
+              font-size: 0.8em;
+              padding-right: 0.2em;
+            }
+          }
+        }
+      }
+      .headers,
+      .sub-header {
+        th,
+        td {
+          height: 26px;
+          border-top: 0.5px solid $light-300;
+        }
+      }
+      .average {
+        th {
+          background-color: $white;
+          border-bottom: 2px solid $light-300;
+          color: $gray;
+          height: 50px;
+          .class-average {
+            font-weight: bold;
+          }
+        }
+        .header {
+          @include flexbox;
+          @include align-items(center);
+          border-left: 1px solid $light-300;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:last-child {
+          th.fixed {
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.07);
+          }
+        }
+      }
+      .even {
+        td,
+        th {
+          background-color: $gray-lighter;
+        }
+      }
+      .odd {
+        td,
+        th {
+          background-color: $white;
+        }
+      }
+      th {
+        width: 140px;
+        span {
+          display: block;
+          width: inherit;
+          @include text-overflow();
+        }
+        &.header.fixed {
+          border-left: 1px solid $light-300;
+        }
+      }
+    }
+    td,
+    th {
+      width: 160px;
+      min-width: 160px;
+      height: 32px;
+      font-weight: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 0;
+      border-right: 1px solid $light-300;
+      padding: 0px;
+      vertical-align: middle !important;
+      text-align: center;
+      div:last-child {
+        border: 0;
+      }
+    }
+    .table-cell {
+      min-width: 57px;
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
+    .gru-metrics-sub-header {
+      font-size: $font-size-base;
+      .metrics-sub-header {
+        a {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 47px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .material-icons {
+          font-size: $font-size-base;
+          margin: 0 0 0 -5px;
+        }
+      }
+    }
+    .width-information {
+      min-width: 160px;
+      max-width: 160px;
+    }
+    .performance-information {
+      .box {
+        border-radius: 4px;
+        width: 42px;
+        height: 25px;
+        display: inline-table;
+        color: $white;
+        text-align: center;
+        &.completion {
+          background-color: $blue-400;
+        }
+      }
+      .charts.gru-completion-chart {
+        width: 55px;
+        height: 25px;
+        display: inline-table;
+        vertical-align: middle;
+        > span {
+          line-height: 25px;
+        }
+        .charts.gru-x-bar-chart {
+          height: inherit;
+        }
+      }
+      .report {
+        text-align: center;
+        i {
+          vertical-align: bottom;
+        }
+      }
+    }
+    .fix {
+      position: absolute;
+      *position: relative; /*ie7*/
+      left: 2% !important;
+      width: 160px;
+      display: block;
+      z-index: 99;
+    }
+    .fixedHeadcol {
+      width: 175px !important;
+    }
+    .lsntxtalignment {
+      text-align: $tab-float-dir;
+      padding-left: 7px;
+    }
+    .unttxtalignment {
+      padding-left: 7px;
+    }
+    .fix2 {
+      position: absolute;
+      *position: relative; /*ie7*/
+      left: 18.2% !important;
+      width: 160px;
+    }
+    .outer {
+      position: relative;
+      border-top: 3px solid $dark-400;
+      border-radius: 5px !important;
+    }
+    .textcentering {
+      display: table !important;
+      overflow: hidden !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin: auto !important;
+      width: 50% !important;
+      height: 35% !important;
+    }
+    .textcenteringsub {
+      display: table !important;
+      overflow: hidden !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin: auto !important;
+      width: 50% !important;
+      height: 62% !important;
+    }
+    .textinsidecenterdiv {
+      display: table-cell !important;
+      vertical-align: middle !important;
+    }
+    ƒ .inner {
+      overflow-x: scroll;
+      overflow-y: visible;
+      width: 400px;
+      margin-left: 100px;
+    }
+    .fixed {
+      left: 10px;
+      min-height: 25px;
+      width: 145px;
+      padding-left: 26px;
+    }
+    .htFixed {
+      height: 112px !important;
+    }
+    .padBottom {
+      padding-bottom: 27px;
+    }
+    .topMargin {
+      padding-top: 10px;
+    }
+    .backgroundfixedeven {
+      background-color: #f2f2f2 !important;
+    }
+    .backgroundfixedodd {
+      background-color: white !important;
+    }
+    .marginleftavgtitle {
+      margin-left: 13px;
+    }
+    .paddingright {
+      padding-right: 20px;
+    }
+    .paddingleft {
+      padding-left: 20px;
+    }
+  }
+  table {
+    table-layout: fixed;
+    width: 160px;
+  }
+
+  td,
+  th {
+    overflow: hidden;
+    width: 160px;
+  }
+
+  .column-headers {
+    max-width: 636px;
+    overflow: hidden;
+  }
+
+  .row-headers {
+    height: 208px;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 5px;
+    padding-bottom: 15px;
+    .header {
+      @include flexbox;
+      @include align-items(center);
+      border-left: 1px solid $light-300;
+    }
+  }
+
+  .column-headers,
+  .table-content {
+    margin-left: 324px;
+    margin-right: -20px;
+  }
+
+  .table-content {
+    max-width: 637px;
+    max-height: 210px;
+    overflow: auto;
+    /*
+ *  STYLE 1
+ */
+
+    .style-1::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+
+    .style-1::-webkit-scrollbar {
+      width: 12px;
+      background-color: #f5f5f5;
+    }
+
+    .style-1::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #555;
+    }
+
+    ::-webkit-scrollbar {
+      width: 14px;
+      height: 18px;
+    }
+    .scroll {
+      overflow: auto;
+    }
+    .scroll::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+      background: inherit;
+    }
+    .scroll::-webkit-scrollbar-track:vertical {
+      border-right: 18px solid rgba(0, 0, 0, 0.2);
+      padding-bottom: 10px;
+    }
+    .scroll::-webkit-scrollbar-thumb:vertical {
+      border-right: 18px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 10px;
+    }
+    .scroll::-webkit-scrollbar-track:horizontal {
+      border-bottom: 8px solid rgba(0, 0, 0, 0.2);
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    .scroll::-webkit-scrollbar-thumb:horizontal {
+      border-bottom: 8px solid rgba(255, 255, 255, 0.2);
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    .scroll::-webkit-scrollbar-corner,
+    .scroll::-webkit-resizer {
+      background: inherit;
+      border-right: 18px solid rgba(255, 255, 255, 0.2); //optional
+      border-bottom: 18px solid rgba(255, 255, 255, 0.2); //optional
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+      padding: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 10px 10px green;
+      border: solid 3px transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      box-shadow: inset 0 0 10px 10px red;
+      border: solid 3px transparent;
+    }
+  }
+}

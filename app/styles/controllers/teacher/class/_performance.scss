@@ -1,0 +1,211 @@
+.controller.teacher.class.performance {
+  padding: 20px 0 0 0;
+  .panel.grade-items {
+    .panel-heading {
+      background-color: $white;
+      font-size: $font-navigator;
+      font-weight: bold;
+      margin: 2px 18px;
+      border-bottom: 1px solid $light-300;
+      padding: 0 0 5px;
+      color: $gray;
+    }
+    .panel-body {
+      padding: 5px 0 10px 18px;
+    }
+  }
+  .actions {
+    margin: 0 0 20px 0;
+    .radios-container {
+      @include flexbox;
+      float: $tab-float-dir;
+      .radio-button {
+        height: 25px;
+        margin: 0 20px 0 0;
+      }
+      & > :last-child {
+        margin-right: 0;
+      }
+    }
+    .btn-primary {
+      float: $menu-float-dir;
+      padding: 6px 10px 6px 8px;
+    }
+  }
+  .options {
+    margin: 0 0 20px 10px;
+    @media (min-width: $screen-xs) {
+      margin: 0 0 10px 10px;
+    }
+    .data-picker {
+      float: $menu-float-dir;
+      height: 28px;
+      ul.list-inline {
+        .checkbox {
+          display: initial;
+          margin: 0 15px 0 0;
+          input {
+            float: $tab-float-dir;
+            margin: 6px 2px 0 0;
+          }
+          label {
+            color: $gray-base;
+            float: $tab-float-dir;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+        & > :last-child div {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .info {
+    margin: 0;
+    .teacher-breadcrumb {
+      float: $tab-float-dir;
+      padding: 0;
+      width: 100%;
+      @media (min-width: $screen-md) {
+        width: 55%;
+      }
+      @media (min-width: $screen-lg) {
+        width: 63%;
+      }
+      button {
+        background-color: $white;
+        border: 2px solid $light-200;
+        border-radius: 18px;
+      }
+    }
+    .grading-scale {
+      float: $menu-float-dir;
+      margin: 20px 0 0 0;
+    }
+  }
+  .classrooms-reports {
+    width: 189.2px;
+    height: 22px;
+    border-radius: 12px;
+    background-color: #b8bfc4;
+  }
+  .widthradiobtns {
+    width: 21%;
+  }
+  .widthscale {
+    width: 42%;
+  }
+  .topPadding {
+    padding-top: 20px;
+  }
+  .scaleBackgroundPadding {
+    width: 50.2px;
+    height: 20px;
+    object-fit: contain;
+    border-radius: 19px;
+    background-color: #f46360;
+  }
+  .selectedButton {
+    width: 95px;
+    height: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  .radioNormalButton {
+    width: 92px;
+    height: 20px;
+    border-radius: 12px;
+    background-color: #b8bfc4;
+  }
+  .normalButtonType {
+    width: 92px;
+    height: 10px;
+    font-family: Lato;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 4px;
+  }
+  .selectedButtonType {
+    width: 92px;
+    height: 10px;
+    font-family: Lato;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    color: #0072be;
+    margin-top: 4px;
+  }
+  .label-text-font {
+    color: #000;
+    float: $tab-float-dir;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: -2px;
+    opacity: 0.4;
+  }
+  .grade-container {
+    margin-top: 6px;
+  }
+  .filters-banner {
+    display: flex;
+  }
+  .filters-container {
+    margin-left: 19px;
+  }
+  .text-download-container {
+    margin-left: 73px;
+  }
+  .row-grade-container {
+    margin-right: 16px;
+  }
+}
+
+.teacher {
+  .content {
+    .rescoped-class {
+      margin-top: 30px;
+      margin: auto;
+      .info-msg {
+        width: 924px;
+        height: 81px;
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+        color: $gray-base;
+        margin-top: 30px;
+        .class-management-link {
+          color: #1fa9e8;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .accordion-img {
+        .title {
+          margin: auto;
+          width: 270px;
+          height: 30px;
+          font-size: 25px;
+          font-weight: 300;
+          color: $dark-600;
+          margin-bottom: 18px;
+          margin-top: 37px;
+        }
+        .image {
+          width: 600px;
+          height: 200px;
+          margin: auto;
+          border-radius: 4px;
+          background-image: url("gooru/rescoped-course.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}

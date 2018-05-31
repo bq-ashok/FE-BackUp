@@ -1,0 +1,66 @@
+<div class="panel-heading">
+  <div class="icon-container pull-left">
+    <img src="{{item.thumbnailUrl}}">
+  </div>
+  <div class="title-container pull-left">
+    <div class="title ellipsis">{{item.title}}</div>
+  </div>
+  <div class="info pull-right">
+    <div class="content-count">
+      {{#if item.isAssessment}}
+        {{#if item.questionCount}}
+          <span class="{{if (gt item.resourceCount 0) '' 'invisible'}}" data-toggle="tooltip" data-html="true" data-placement="top" title="{{t "common.questions"}}">{{gru-icon name='help_outline'}} &nbsp; &nbsp;</span>
+          <span class="{{if (gt item.questionCount 0) '' 'invisible'}}" data-toggle="tooltip" data-html="true" data-placement="top" title="{{t "common.questions"}}">{{gru-icon name='help_outline'}}</span> <span class="{{if (gt item.questionCount 0) '' 'invisible'}} ">{{item.questionCount}}</span>
+        {{/if}}
+      {{else}}
+        {{#if (or item.questionCount item.resourceCount)}}
+          <span class="{{if (gt item.resourceCount 0) '' 'invisible'}}" data-toggle="tooltip" data-html="true" data-placement="top" title="{{t "common.resources"}}">{{gru-icon name='local_library'}}</span><span class="{{if (gt item.resourceCount 0) '' 'invisible'}} ">{{item.resourceCount}}</span>
+          <span class="{{if (gt item.questionCount 0) '' 'invisible'}}" data-toggle="tooltip" data-html="true" data-placement="top" title="{{t "common.questions"}}">{{gru-icon name='help_outline'}}</span><span class="{{if (gt item.questionCount 0) '' 'invisible'}} ">{{item.questionCount}}</span>
+        {{/if}}
+      {{/if}}
+       {{#if (eq item.collectionType 'assessment-external')}}
+      <img src="/assets/gooru/share.png"
+     srcset="/assets/gooru/share@2x.png 2x,
+             /assets/gooru/share@3x.png 3x"
+     class="share">
+     {{/if}}
+    </div>
+    <div class="play-btn">
+      {{#if visible}}
+        {{#if (eq item.collectionType 'assessment-external') }}
+          <button {{action 'externalAssessment' classActivity}} class="btn btn-info study-now pull-left ember-view">
+          {{gru-icon name='play_arrow'}}
+        </button>
+        {{else}}
+          {{#if classActivity.context.courseId}}
+            {{#link-to 'context-player' class.id classActivity.context.courseId classActivity.context.unitId classActivity.context.lessonId item.id (query-params type=item.collectionType role='student' source=source tenantId=session.tenantId partnerId=session.partnerId
+              ) tagName="button" class="btn btn-info study-now pull-left" }}
+              {{gru-icon name='play_arrow'}}
+            {{/link-to}}
+          {{else}}
+            {{#link-to 'player' item.id (query-params classId=class.id type=item.collectionType role='student' source=source tenantId=session.tenantId partnerId=session.partnerId ) tagName="button" class="btn btn-info study-now pull-left" }}
+              {{gru-icon name='play_arrow'}}
+            {{/link-to}}
+          {{/if}}
+        {{/if}}
+      {{else}}
+        {{gru-icon name='play_arrow'}}
+      {{/if}}
+      {{#if (or collectionPerformanceSummary.score collectionPerformanceSummary.timeSpent)}}
+        <span {{action 'onReportClick' session.userId item}} class='visibility-panel pull-right reporticon item-not-visible hidden-xs pointer' data-toggle="tooltip" data-placement="auto">{{gru-icon name='library_books'}}</span>
+      {{/if}}
+    </div>
+
+    <div class="performance pull-right">
+      {{#if item.isAssessment}}
+        <span class="score" style= {{safe-html (concat "color:" (grade-color (if collectionPerformanceSummary.score collectionPerformanceSummary.score 'NA')))}}>
+          {{if collectionPerformanceSummary.score (concat collectionPerformanceSummary.score '%') '--'}}
+        </span>
+      {{else}}
+        <span class="time-spent">
+          {{if collectionPerformanceSummary.timeSpent (format-time collectionPerformanceSummary.timeSpent) '--'}}
+        </span>
+      {{/if}}
+    </div>
+  </div>
+</div>

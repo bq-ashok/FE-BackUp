@@ -1,0 +1,239 @@
+.partner-library {
+  @include flexbox;
+  @include flex-direction(row);
+  min-height: 100%;
+  width: 100vw;
+
+  .side-panel {
+    background: $white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    width: 20vw;
+
+    .partner-library-info {
+      @include flexbox;
+      @include flex-direction(column);
+      @include align-items(center);
+      @include justify-content(center);
+
+      .partner-library-img {
+        border-radius: 50%;
+        border: 1px solid $red-100;
+        height: 9rem;
+        margin-top: 20px;
+        width: 9rem;
+      }
+
+      .partner-library-name {
+        color: $gray;
+        font-size: $font-size-lead;
+        font-weight: bold;
+        overflow: hidden;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        text-align: center;
+        text-overflow: ellipsis;
+        width: 100%;
+        white-space: nowrap;
+      }
+    }
+
+    .partner-library-menu {
+      margin-top: 2rem;
+
+      li {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include align-content(flex-start);
+        border: none;
+        cursor: pointer;
+        color: $white;
+        padding: 7px 32px;
+
+        h6 {
+          color: $gray;
+        }
+
+        &.selected {
+          background-color: $gray-sharper;
+        }
+
+        .gru-icon {
+          color: $blue-100;
+          height: 24px;
+
+          &.content {
+            background: url("/assets/gooru/images/icon-content-light.svg")
+              no-repeat center center;
+            width: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  > .content {
+    width: 82vw;
+    margin: 0 auto auto;
+    max-width: 1017px;
+  }
+
+  .partner-library-content {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+    background-color: $light-100;
+    height: 50px;
+    margin-bottom: 30px;
+
+    .category-options li a span {
+      font-size: 16px;
+      color: $light-500;
+    }
+
+    .category-options li.active a {
+      padding-bottom: 3px;
+    }
+
+    .category-options ul li:first-of-type {
+      margin-left: 0;
+    }
+
+    .category-options li.active a > * {
+      color: $gray-darker;
+    }
+
+    .category-options li.active {
+      border-bottom: 4px solid #222;
+    }
+
+    .category-options li {
+      display: inline-block;
+      margin: 0 10px;
+      height: 100%;
+    }
+
+    .category-options ul li {
+      top: 3px;
+    }
+
+    .category-options li:hover {
+      border-bottom: 4px solid $gray-darker;
+    }
+
+    .category-options {
+      border-bottom: 2px solid $gray-light;
+      margin-left: 18px;
+      margin-right: 18px;
+
+      .btn-category span {
+        vertical-align: middle;
+        display: inline-block;
+        font-size: 16px;
+        margin: 0 5px 0 0;
+      }
+
+      .courses {
+        margin-left: 0;
+
+        i {
+          color: $light-500;
+        }
+      }
+    }
+  }
+
+  .content_outlet {
+    .content-collections {
+      .collections {
+        .card {
+          .gru-standard-card {
+            .panel .panel-footer {
+              padding: 0;
+
+              .options {
+                padding: 0;
+
+                .preview-btn {
+                  height: 44px;
+                  background-color: $blue-400;
+                }
+              }
+            }
+
+            .panel {
+              .cca-description {
+                .remixed-by {
+                  .title {
+                    width: 63px;
+                  }
+
+                  .owner {
+                    max-width: 75px;
+                  }
+                }
+
+                .author {
+                  .title {
+                    width: 63px;
+                  }
+
+                  .owner {
+                    max-width: 75px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content_outlet {
+    .content-assessments {
+      .assessments {
+        .card {
+          .gru-standard-card {
+            .panel .panel-footer {
+              padding: 0;
+
+              .options {
+                padding: 0;
+
+                .preview-btn {
+                  height: 44px;
+                  background-color: $blue-400;
+                }
+              }
+            }
+
+            .panel {
+              .cca-description {
+                .remixed-by {
+                  .title {
+                    width: 63px;
+                  }
+
+                  .owner {
+                    max-width: 75px;
+                  }
+                }
+
+                .author {
+                  .title {
+                    width: 63px;
+                  }
+
+                  .owner {
+                    max-width: 75px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

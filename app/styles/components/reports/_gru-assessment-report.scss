@@ -1,0 +1,49 @@
+.reports.gru-assessment-report {
+  width: 100%;
+  background-color: $white;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: $screen-sm-min) {
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: $screen-md-min) {
+  }
+
+  .gru-assessment-summary {
+    background: $white;
+    .reports-owner {
+      border-bottom: 1px solid $light-200;
+      span {
+        margin-left: 16px;
+      }
+    }
+
+    .summary-mastry-question {
+      max-height: 400px;
+      overflow: auto;
+    }
+
+    .summary-mastry-question::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .summary-mastry-question::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: $gray-harder;
+    }
+  }
+
+  .hidden-report {
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+    height: 200px;
+
+    span {
+      @include flex();
+      text-align: center;
+      font-size: $font-size-large;
+    }
+  }
+}

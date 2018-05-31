@@ -1,0 +1,30 @@
+.gru-take-tour {
+  height: 60px;
+  position: absolute;
+  z-index: 10;
+  button {
+    background-color: $blue-400;
+    height: 40px;
+    padding: 4px 6px 0 0;
+    width: 40px;
+    border-radius: 25px;
+    border: none;
+    i {
+      color: $white;
+      font-size: $font-size-tour-icon;
+      height: 22px;
+      width: 25px;
+    }
+    .descriptive-text {
+      bottom: -3px;
+      font-size: $font-size-h6;
+      position: absolute;
+      left: 6px;
+      p {
+        color: $blue-400;
+        margin: 2px 0 0;
+        font-weight: bold;
+      }
+    }
+  }
+}

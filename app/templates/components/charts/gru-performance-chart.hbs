@@ -1,0 +1,28 @@
+<div class="container-box" title="{{scoreText}}" style="background-color:{{grade-color (if hasStarted scoreVal 'NA')}}">
+  {{#if hasStarted}}
+    <label class="percentage">
+      {{#if routeToGo}}
+        {{#link-to routeToGo class="pointer" tagName="div"}}
+          {{scoreText}}
+        {{/link-to}}
+      {{else}}
+        {{scoreText}}
+      {{/if}}
+    </label>
+    {{#if (eq tooltipText 'NA')}}
+    <div ></div>
+     {{else}}
+     <div class="completion-bar" data-toggle="tooltip" data-html="true" data-placement="right"
+         title="{{tooltipText}}">
+      <div class="segment {{if isFull 'full'}}" style="{{colorStyle}} {{widthStyle}}"></div>
+    </div>
+      {{/if}}
+  {{else}}
+    <label class="not-started">
+      {{t "common.notStarted"}}
+    </label>
+    <div class="completion-bar">
+       <div class="segment {{if isFull 'full'}}" style="background-color: #fff; {{widthStyle}}"></div>
+    </div>
+  {{/if}}
+</div>

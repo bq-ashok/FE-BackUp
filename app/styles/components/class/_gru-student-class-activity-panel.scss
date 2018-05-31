@@ -1,0 +1,121 @@
+.gru-student-class-activity-panel.panel {
+  $collection-icon-size: 48px;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  list-style: none;
+  &.visibility-off {
+    opacity: 0.5;
+  }
+
+  .panel-heading {
+    border-bottom: $light-200 1px solid;
+    width: 100%;
+    display: inline-block;
+    border-radius: 0;
+    padding: 0;
+
+    .icon-container {
+      border-right: 1px solid $light-300;
+      height: 60px;
+      width: 95px;
+      img {
+        height: 100%;
+        width: 94px;
+      }
+    }
+
+    .title-container {
+      line-height: 1.4;
+      margin: 15px 0 0 10px;
+      width: 40%;
+      .title {
+        font-size: $font-size-lead;
+        font-weight: 300;
+        color: $dark-400;
+      }
+    }
+
+    .info {
+      height: 60px;
+      width: 33%;
+      .share {
+        width: 18px;
+        height: 15px;
+        object-fit: contain;
+        margin-left: 44%;
+      }
+      .content-count {
+        font-size: $font-navigator;
+        margin: 10px 10px 0 0;
+        color: $light-400;
+        float: $tab-float-dir;
+        width: 42%;
+        span {
+          vertical-align: middle;
+          i {
+            display: inline-block;
+            margin: 0 6px 0 0;
+            vertical-align: middle;
+            color: $light-200;
+            font-size: $font-unBookmark;
+            cursor: default;
+          }
+          &.question-count {
+            i.icon {
+              background: url("gooru/question-icon.png");
+              -webkit-background-size: 25px 25px;
+              background-size: 25px 25px;
+              height: 25px;
+              width: 25px;
+            }
+          }
+        }
+      }
+
+      .play-btn {
+        border-left: 1px solid $light-100;
+        border-right: 1px solid $light-100;
+        display: inline-block;
+        height: 60px;
+        width: 90px;
+        .reporticon {
+          margin-top: 21%;
+          margin-right: 8px;
+        }
+        .btn.study-now {
+          background-color: $white;
+          font-size: $font-size-h6;
+          height: 40px;
+          margin: 10px 0;
+          i {
+            font-size: $font-size-h4;
+            color: $dark-300;
+          }
+        }
+      }
+
+      .performance {
+        display: inline-block;
+        height: 60px;
+        width: 75px;
+        margin: 0;
+        vertical-align: middle;
+        padding: 20px 5px 0;
+        text-align: center;
+        font-weight: 900;
+        span {
+          vertical-align: middle;
+        }
+        .score {
+          font-size: $font-size-large;
+          line-height: $font-size-large;
+        }
+        .time-spent {
+          font-size: $font-size-base;
+          color: $light-450;
+        }
+      }
+    }
+  }
+}

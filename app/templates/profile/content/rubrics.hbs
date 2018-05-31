@@ -1,0 +1,34 @@
+<div class="controller content-rubrics">
+    <div class="rubrics clearfix col-xs-12">
+      {{#each rubrics as |rubric|}}
+          <div class="card col-lg-3 col-sm-4 col-xs-6">
+            {{new-cards.gru-resource-card
+            resource=rubric
+            editEnabled=isMyProfile
+            onEditResource='editRubric'
+            isRubric=true
+            isOnProfile=true
+            }}
+          </div>
+      {{else}}
+          <div class="panel add-content panel-default">
+              <div class="panel-body">
+                {{gru-icon name='explore'}}
+                {{#if isMyProfile}}
+                    <p>{{{t "common.add-content-prompt" type=(t "common.a-rubric")}}}</p>
+                    <button class="btn btn-success" {{action "showModal" "content.modals.gru-rubric-new"}}>
+                      {{t "common.add"}} {{t "common.rubric"}}
+                    </button>
+                {{else}}
+                    <p>{{{t "common.no-rubrics-to-display"}}}</p>
+                {{/if}}
+              </div>
+          </div>
+      {{/each}}
+    </div>
+    <div class="col-xs-12">
+      {{#if showMoreResultsButton}}
+          <span class="show-more-results" {{action 'showMoreResults'}}>{{t "common.show-more-results"}}</span>
+      {{/if}}
+    </div>
+</div>

@@ -1,0 +1,419 @@
+.controller.teacher.class.class-management {
+  .miniprofile {
+    width: 29px;
+    border-radius: 50%;
+    border-color: transparent;
+  }
+
+  .header-info {
+    max-width: 960px;
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.07);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: $white;
+    .class-information {
+      height: 60px;
+      float: $tab-float-dir;
+      .class-name {
+        > span {
+          font-size: 11px;
+          opacity: 0.7;
+          color: $dark-300;
+          position: absolute;
+          margin-top: 10px;
+        }
+        .edit-text {
+          display: flex;
+          position: absolute;
+          margin-top: 26px;
+          .gru-icon.edit {
+            opacity: 0.3;
+            font-size: 18px;
+            margin-left: 10px;
+            position: absolute;
+            line-height: 1.2;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .course-information {
+      height: 60px;
+      display: block;
+      .actions {
+        // margin-left: 283px;
+        float: $menu-float-dir;
+        margin-top: 18px;
+        .delete-btn,
+        .archive-btn {
+          cursor: pointer;
+        }
+        .archive-btn {
+          margin-right: 10px;
+        }
+      }
+      .edit-text {
+        display: flex;
+        margin-top: 26px;
+        position: absolute;
+        .gru-icon.edit {
+          opacity: 0.3;
+          font-size: 18px;
+          margin-left: 10px;
+          line-height: 1.2;
+          position: absolute;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .student-title {
+    width: 64px;
+    height: 19px;
+    opacity: 0.5;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: $gray-base;
+    margin-top: 1.9%;
+  }
+
+  .students-panel {
+    margin-top: 10px;
+    min-height: 0;
+    padding: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    .student-actions-width {
+      width: calc((955px - 640px) / 4);
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 0;
+      thead,
+      tbody {
+        display: block;
+      }
+      .table-header {
+        background-color: $white;
+        width: 100%;
+        border-bottom: 1px solid $light-300;
+        th {
+          padding: 0;
+          border-bottom: none;
+          height: 48px;
+          //width: 36%;
+          @media (min-width: $screen-sm-max) {
+            //border-right: 2px dashed $table-border-color;
+            // width: calc((955px - 654px) /4);
+          }
+          th.miniprofile {
+            @extend .miniprofile;
+          }
+          .student-actions {
+            @extend .student-actions-width;
+          }
+          .datacolumn {
+            width: calc((654px - 29px) / 3);
+          }
+          div {
+            padding: 0 0 10px 10px;
+            display: flex;
+            i {
+              margin-left: 15px;
+              cursor: pointer;
+            }
+          }
+          span {
+            font-size: 14px;
+            color: $dark-400;
+            font-weight: bold;
+            margin-left: 15px;
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        max-height: 364px;
+        overflow: auto;
+        tr {
+          border-bottom: 1px solid $light-200;
+        }
+
+        tr:nth-child(odd) {
+          background-color: $white;
+        }
+        tr:nth-child(even) {
+          background-color: $white;
+        }
+        .student {
+          height: 36px;
+          .miniprofile {
+            @extend .miniprofile;
+
+            cursor: pointer;
+          }
+          td.datacolumn {
+            width: calc((654px - 29px) / 3);
+          }
+          td.border-right {
+            width: 218px;
+            white-space: nowrap;
+            padding: 0;
+            border-top: none;
+            span {
+              font-size: 12px;
+              color: $gray-29;
+              margin-left: 23px;
+              line-height: 36px;
+            }
+          }
+          td.student-actions {
+            //border: none;
+            //width: 91px;
+            @extend .student-actions-width;
+            vertical-align: bottom;
+            line-height: 35px;
+            padding: 0;
+            padding-left: 31px;
+            cursor: pointer;
+            .remove-student {
+              cursor: pointer;
+              > i {
+                line-height: 35px;
+                margin-right: 9px;
+                color: $gray-80;
+              }
+            }
+
+            img {
+              vertical-align: top;
+            }
+          }
+        }
+      }
+    }
+    .border-right {
+      border-right: 2px dashed $table-border-color;
+    }
+    tbody::-webkit-scrollbar {
+      width: 4px;
+      border-radius: 3px;
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+      background: $gray-light;
+      border: 1px solid $gray-light;
+      border-radius: 5px;
+    }
+  }
+  .assessment-min-score {
+    margin-left: 100px;
+    > span {
+      font-size: 11px;
+      opacity: 0.7;
+      color: $dark-300;
+      margin-top: 10px;
+      position: absolute;
+    }
+    .gru-input-number {
+      .error-messages {
+        margin-top: -5px;
+      }
+    }
+  }
+  .no-students {
+    .student-null {
+      background: url("gooru/images/student-null.png") no-repeat;
+      height: 250px;
+      width: 250px;
+      background-size: 216px 216px;
+      margin: 25px auto auto;
+    }
+    div.message {
+      color: $gray-dove;
+      font-size: 19.5px;
+      font-weight: 300;
+      line-height: 1.54;
+      text-align: center;
+    }
+  }
+  .teacherinfo {
+    margin-top: 1.9%;
+    margin-bottom: 1.9%;
+
+    i {
+      cursor: pointer;
+    }
+
+    .teacher-title {
+      @extend .student-title;
+    }
+    .line-sep-hr {
+      width: 956px;
+      height: 1px;
+      border: solid 0.5px $gray-base;
+      margin-top: 0.1%;
+      margin-bottom: 1.5%;
+      border-bottom: none;
+    }
+    .teachercard {
+      display: flex;
+      flex-flow: row wrap;
+      .teacher-card-shape {
+        width: 225px;
+        height: 281px;
+        border-radius: 4px;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+        background-color: $white;
+        border: solid 1px $white;
+        display: inline-flex;
+        flex-flow: column;
+        justify-items: center;
+        margin-right: 1.5%;
+        margin-bottom: 1.5%;
+
+        .teacherprofileimg {
+          width: 50%;
+          height: 39.5%;
+          border-radius: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 9.3%;
+        }
+        .owner {
+          width: 100%;
+          height: 16px;
+          font-size: 13px;
+          opacity: 0.9;
+          font-weight: normal;
+          text-align: center;
+          color: $gray-base;
+        }
+
+        .teachername {
+          width: 100%;
+          height: 27px;
+          opacity: 0.9;
+          font-size: 22px;
+          font-weight: normal;
+          text-align: center;
+          color: $gray-base;
+        }
+
+        .teacherexinfocontainer {
+          flex: 1;
+          flex-flow: row;
+          margin-top: 7.5%;
+
+          .teacherexinfo {
+            display: flex;
+            position: relative;
+
+            .posabs {
+              position: absolute;
+              top: 11px;
+              left: 56px;
+            }
+
+            .t-top-line {
+              width: 179px;
+              height: 1px;
+              border: solid 0.5px $gray-base;
+              margin-left: auto;
+              margin-right: auto;
+              border-bottom: none;
+            }
+            .t-ver-line {
+              @extend .posabs;
+              width: 1px;
+              height: 51px;
+              border: solid 0.5px $gray-base;
+              left: 111px;
+              top: 0px;
+              border-left: none;
+            }
+
+            .Shape {
+              width: 20px;
+              height: 20px;
+              align-self: center;
+            }
+            .account-circle {
+              @extend .Shape;
+              @extend .posabs;
+              left: 152px;
+              object-fit: contain;
+            }
+
+            .lbl {
+              @extend .posabs;
+              font-weight: 300;
+              color: $gray;
+              text-align: center;
+            }
+            .profile-lbl {
+              @extend .lbl;
+              left: 47.5px;
+              top: 35px;
+              width: 37px;
+              height: 16px;
+              opacity: 0.9;
+              font-size: 13px;
+            }
+
+            .remove-lbl {
+              @extend .lbl;
+              left: 121px;
+              top: 35px;
+              width: 82px;
+              height: 18px;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      // Special  behavior for single card
+      .teacher-card-shape:only-child {
+        margin-left: auto;
+        margin-right: auto;
+        .teachername {
+          margin-top: auto;
+          height: 33%;
+        }
+        .owner {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+
+  .teachers-info-table {
+    @extend .students-panel;
+    .teacherdatacolumn {
+      width: calc(955px / 3);
+    }
+    .teacher-actions {
+      width: calc(300px / 2);
+    }
+    table > tbody > tr > td.teacher-actions {
+      padding-left: 30px;
+      .remove-teacher {
+        cursor: pointer;
+        > i {
+          line-height: 35px;
+          margin-right: 9px;
+          color: $gray-80;
+        }
+      }
+    }
+  }
+}
